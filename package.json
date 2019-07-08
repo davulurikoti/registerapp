@@ -5,14 +5,17 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "7.2.13",
     "@angular/cdk": "7.3.7",
+    "@angular/cli": "^8.1.0",
     "@angular/common": "7.2.13",
     "@angular/compiler": "7.2.13",
+    "@angular/compiler-cli": "^7.2.13",
     "@angular/core": "7.2.13",
     "@angular/fire": "^5.2.1",
     "@angular/forms": "7.2.13",
@@ -24,22 +27,29 @@
     "angular2-signaturepad": "^2.8.0",
     "bootstrap": "^4.1.2",
     "core-js": "^2.4.1",
+    "express": "^4.17.1",
     "firebase": "^5.9.4",
     "node-sass": "^4.11.0",
     "npm": "^6.9.0",
+    "path": "^0.12.7",
     "rxjs": "^6.4.0",
     "rxjs-compat": "^6.3.3",
+    "typescript": "3.2.4",
     "zone.js": "^0.8.29"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.13.0",
-    "@angular/cli": "7.3.8",
-    "@angular/compiler-cli": "7.2.13",
+    "@angular/cli": "^8.1.0",
+    "@angular/compiler-cli": "^7.2.13",
     "@angular/language-service": "7.2.13",
     "@types/node": "~6.0.60",
     "codelyzer": "~3.2.0",
+    "enhanced-resolve": "^3.3.0",
     "ts-node": "~3.2.0",
-    "tslint": "~5.7.0",
-    "typescript": "3.2.4"
+    "tslint": "~5.7.0"
+  },
+  "engines": {
+    "node": "10.13.0",
+    "npm": "6.4.1"
   }
 }
