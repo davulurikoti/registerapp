@@ -1,0 +1,101 @@
+<div class="create-page">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Create User</li>
+    </ol>
+  </nav>
+  <div class="page-content">
+    <div class="row">
+      <div class="col col-md-4">
+        <img class="img-avatar" src="{{avatarLink}}">
+        <button mat-stroked-button class="change-img-button" color="primary" (click)="openDialog()">Change Image</button>
+      </div>
+
+      <div class="col col-md-8">
+
+        <form class="create-form" [formGroup]="exampleForm" novalidate (ngSubmit)="onSubmit(exampleForm.value)">
+
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input matInput placeholder="Name" class="form-control" formControlName="name">
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validation_messages.name">
+              <mat-error *ngIf="exampleForm.get('name').hasError(validation.type) && (exampleForm.get('name').dirty || exampleForm.get('name').touched)">{{validation.message}}</mat-error>
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input matInput placeholder="Organization" class="form-control" formControlName="organization">
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validation_messages.organization">
+              <mat-error *ngIf="exampleForm.get('organization').hasError(validation.type) && (exampleForm.get('organization').dirty || exampleForm.get('organization').touched)">{{validation.message}}</mat-error>
+            </ng-container>
+          </div>
+
+         <!-- <div class="form-group">
+            <mat-form-field class="input-style">
+              <input matInput type="number" min="0" max="100" placeholder="Visitor pass Number" class="form-control" formControlName="visitorpass">
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validation_messages.visitorpass">
+              <mat-error *ngIf="exampleForm.get('visitorpass').hasError(validation.type) && (exampleForm.get('visitorpass').dirty || exampleForm.get('visitorpass').touched)">{{validation.message}}</mat-error>
+            </ng-container>
+          </div>-->
+
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input matInput placeholder="Person to meet" class="form-control" formControlName="persontomeet">
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validation_messages.persontomeet">
+              <mat-error *ngIf="exampleForm.get('persontomeet').hasError(validation.type) && (exampleForm.get('persontomeet').dirty || exampleForm.get('persontomeet').touched)">{{validation.message}}</mat-error>
+            </ng-container>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input matInput placeholder="Purpose of this visit" class="form-control" formControlName="purpose">
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validation_messages.purpose">
+              <mat-error *ngIf="exampleForm.get('purpose').hasError(validation.type) && (exampleForm.get('purpose').dirty || exampleForm.get('purpose').touched)">{{validation.message}}</mat-error>
+            </ng-container>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input matInput type="number" min="0" max="100" placeholder="Escort employee id" class="form-control" formControlName="esscortnumber">
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validation_messages.esscortnumber">
+              <mat-error *ngIf="exampleForm.get('esscortnumber').hasError(validation.type) && (exampleForm.get('esscortnumber').dirty || exampleForm.get('esscortnumber').touched)">{{validation.message}}</mat-error>
+            </ng-container>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input matInput placeholder="Escort Name" class="form-control" formControlName="escortname">
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validation_messages.escortname">
+              <mat-error *ngIf="exampleForm.get('escortname').hasError(validation.type) && (exampleForm.get('escortname').dirty || exampleForm.get('escortname').touched)">{{validation.message}}</mat-error>
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field class="example-full-width">
+                <input matInput [matDatepicker]="picker" placeholder="Date of visit" formControlName="dov">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker touchUi #picker></mat-datepicker>
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validation_messages.dov">
+              <mat-error *ngIf="exampleForm.get('dov').hasError(validation.type) && (exampleForm.get('dov').dirty || exampleForm.get('dov').touched)">{{validation.message}}</mat-error>
+            </ng-container>
+          </div>
+
+
+
+          <div class="row submit-button-container">
+            <div class="col-md-4">
+              <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!exampleForm.valid">Create</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-md-4 offset-md-1">
+    <div class="input-group">
+      <input type="text" class="form-control" [(ngModel)]="searchValue" [ngModelOptions]="{standalone: true}" placeholder="Search by name..." (keyup)="searchByName()">
+      <div class="input-group-append">
+        <span class="input-group-text"><ion-icon class="icon" name="search"></ion-icon></span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 filter-by-date">
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="example-full-width">
+                <input matInput [matDatepicker]="picker" placeholder="Date" [(ngModel)]="dov" (dateInput)="getData()" (dateChange)="getData()">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker touchUi #picker></mat-datepicker>
+            </mat-form-field>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="list-group users-list">
+  <div *ngFor="let item of items" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="row">
+      <div class="col col-md-2 image-col">
+        <img class="image" [src]="item.payload.doc.data().avatar">
+      </div>
+      <div class="col col-md-6 text-col">
+        <h5 class="mb-1">{{item.payload.doc.data().name}}</h5>
+        <small>Organization: {{item.payload.doc.data().organization}}</small>
+      </div>
+      <div class="col col-md-2 text-col">
+        <small>Purpose: {{item.payload.doc.data().purpose}}</small><br/>
+        <small *ngIf="item.payload.doc.data().status == 0">Status: Yet to enter</small>
+        <small *ngIf="item.payload.doc.data().status == 1">Status: Inside ODC</small>
+        <br/>
+        <small>Escort: {{item.payload.doc.data().esscortnumber}}</small>
+      </div>
+      <div class="col col-md-2 actions-col">
+        <button class="btn btn-outline-primary action" (click)="viewDetails(item)" type="button">
+          <ion-icon class="icon" name="arrow-round-forward"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
